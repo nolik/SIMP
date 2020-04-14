@@ -7,7 +7,6 @@
 :- assert(bigger("слива", "вишня")).
 
 % Predicates
-bigger/2 :- !.
 smaller(X, Y) :- bigger(Y, X).
 
 has_smaller(X) :- bigger(X, _).
@@ -18,7 +17,7 @@ biggest(X) :- bigger(X, _), \+ has_bigger(X).
 
 % Functions
 print_all_facts :-
-  writeln("All facts:"),
+  writeln("Доступные факты:"),
   forall(
     bigger(X, Y),
     writef("%t > %t\n", [X, Y])
@@ -31,9 +30,9 @@ main :-
   read_line_to_string(user_input, Answer),
   ( Answer = "да"
     ->
-    writeln("больше:"),
+    writeln("объект больше:"),
     read_line_to_string(user_input, BiggerItem),
-    writeln("меньше:"),
+    writeln("объект меньше:"),
     read_line_to_string(user_input, SmallerItem),
     assert(bigger(BiggerItem, SmallerItem)),
     fail

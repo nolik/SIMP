@@ -1,16 +1,13 @@
 module Main where
 
--- Тестовое значение
--- f 5 4 ~ 0.0087
-
 -- Целевая функция
-f m n = sqrt (abs (num / denum))
+f m n = sqrt (abs (numerator / denominator))
   where
-    num = cos (exp (0.9 * n - 0.4 * m))
+    numerator = cos (exp (0.9 * n - 0.4 * m))
     c = log ((cos 0.6) + sin (0.2 + pi))
-    denum = (m ^ 5) + (n ^ 2) - c
+    denominator = (m ^ 5) + (n ^ 2) - c
 
--- Функция входа в программу, считывает аргументы функции f, вычисляет и выводит её значение
+-- Точка входа в программу, считывает аргументы функции f, вычисляет и выводит её значение
 main = do
     putStrLn "Введите m:"
     m <- readLn

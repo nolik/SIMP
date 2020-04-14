@@ -1,18 +1,18 @@
-:- initialization tickets(Tickets), writef("Результат: %t \n", [Tickets]), halt.
+:- initialization туры(Тур), writef("Результат: %t \n", [Тур]), halt.
 
-tickets(Tickets) :-
-	length(Tickets, 3),
-	member(ticket(ивановы, _, _), Tickets),
-	member(ticket(петровы, _, _), Tickets),
-	member(ticket(васечкины, _, _), Tickets),
-	member(ticket(_, turkey, _), Tickets),
-	member(ticket(_, italy, _), Tickets),
-	member(ticket(_, spain, _), Tickets),
-	member(ticket(_, _, 2000), Tickets),
-	member(ticket(_, _, 3000), Tickets),
-	member(ticket(_, _, 5000), Tickets),
-	not(member(ticket(ивановы, turkey, _), Tickets)),
-	not(member(ticket(петровы, italy, _), Tickets)),
-	not(member(ticket(_, turkey, 5000), Tickets)),
-	member(ticket(_, italy, 3000), Tickets),
-	not(member(ticket(петровы, _, 2000), Tickets)).
+туры(Тур) :-
+	length(Тур, 3),
+	member(тур(ивановы, _, _), Тур),
+	member(тур(петровы, _, _), Тур),
+	member(тур(васечкины, _, _), Тур),
+	member(тур(_, турция, _), Тур),
+	member(тур(_, италия, _), Тур),
+	member(тур(_, испания, _), Тур),
+	member(тур(_, _, 2000), Тур),
+	member(тур(_, _, 3000), Тур),
+	member(тур(_, _, 5000), Тур),
+	not(member(тур(ивановы, турция, _), Тур)),
+	not(member(тур(петровы, италия, _), Тур)),
+	not(member(тур(_, турция, 5000), Тур)),
+	member(тур(_, италия, 3000), Тур),
+	not(member(тур(петровы, _, 2000), Тур)).
