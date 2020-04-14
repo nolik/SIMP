@@ -1,25 +1,25 @@
 :- initialization main, halt.
 
 % Inital facts
-:- assert(bigger("дуриан", "папайя")).
-:- assert(bigger("папайя", "авокадо")).
-:- assert(bigger("авокадо", "слива")).
-:- assert(bigger("слива", "вишня")).
+:- assert(больше("дуриан", "папайя")).
+:- assert(больше("папайя", "авокадо")).
+:- assert(больше("авокадо", "слива")).
+:- assert(больше("слива", "вишня")).
 
 % Predicates
-smaller(X, Y) :- bigger(Y, X).
+меньше(X, Y) :- больше(Y, X).
 
-has_smaller(X) :- bigger(X, _).
-has_bigger(X) :- smaller(X, _).
+есть_ли_меньше(X) :- больше(X, _).
+есть_ли_больше(X) :- меньше(X, _).
 
-smallest(X) :- smaller(X, _), \+ has_smaller(X).
-biggest(X) :- bigger(X, _), \+ has_bigger(X).
+наименьший(X) :- меньше(X, _), \+ есть_ли_меньше(X).
+наибольший(X) :- больше(X, _), \+ есть_ли_больше(X).
 
 % Functions
 print_all_facts :-
   writeln("Доступные факты:"),
   forall(
-    bigger(X, Y),
+    больше(X, Y),
     writef("%t > %t\n", [X, Y])
   ).
 
@@ -34,9 +34,9 @@ main :-
     read_line_to_string(user_input, BiggerItem),
     writeln("объект меньше:"),
     read_line_to_string(user_input, SmallerItem),
-    assert(bigger(BiggerItem, SmallerItem)),
+    assert(больше(BiggerItem, SmallerItem)),
     fail
     ;
-    findall(X, smallest(X), Xs), writef("Наименьший фрукт %t.\n", [Xs]),
-    findall(Y, biggest(Y), Ys), writef("Наибольший фрукт %t.\n", [Ys])
+    findall(X, наименьший(X), Xs), writef("Наименьший фрукт %t.\n", [Xs]),
+    findall(Y, наибольший(Y), Ys), writef("Наибольший фрукт %t.\n", [Ys])
   ).
