@@ -1,4 +1,6 @@
-:- initialization туры(Тур), writef("Результат: %t \n", [Тур]), halt.
+:- initialization туры(Тур),
+                  writef("Результат: %t \n", [Тур]),
+                  halt.
 
 туры(Тур) :-
 	length(Тур, 3),

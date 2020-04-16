@@ -20,4 +20,4 @@ main :-
   append(Zs, Xs, Ws),
   append(Ws, Ys, All),
 
-  writef("все персонажи сказки: %t.", [All]).
+  writef("все персонажи сказки: %t.\n", [All]).

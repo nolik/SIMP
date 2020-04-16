@@ -1,10 +1,9 @@
 :- initialization main, halt.
 
 % Inital facts
-:- assert(больше("дуриан", "папайя")).
-:- assert(больше("папайя", "авокадо")).
-:- assert(больше("авокадо", "слива")).
-:- assert(больше("слива", "вишня")).
+:- assert(больше("ананаса", "папайя")).
+:- assert(больше("папайя", "персик")).
+:- assert(больше("персик", "слива")).
 
 % Predicates
 меньше(X, Y) :- больше(Y, X).
@@ -37,6 +36,6 @@ main :-
     assert(больше(BiggerItem, SmallerItem)),
     fail
     ;
-    findall(X, наименьший(X), Xs), writef("Наименьший фрукт %t.\n", [Xs]),
-    findall(Y, наибольший(Y), Ys), writef("Наибольший фрукт %t.\n", [Ys])
+    findall(X, наименьший(X), Xs), writef("Наименьший объект %t.\n", [Xs]),
+    findall(Y, наибольший(Y), Ys), writef("Наибольший объект %t.\n", [Ys])
   ).
